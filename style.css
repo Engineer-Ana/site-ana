@@ -1,0 +1,980 @@
+/* ============================================
+   IMPORTAÇÃO DE FONTES (Google Fonts)
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+/* ============================================
+   VARIÁVEIS DE CORES E FONTES
+   ============================================ */
+:root {
+    --cor-primaria: #1a365d;
+    --cor-secundaria: #2c5282;
+    --cor-destaque: #d4a574;
+    --cor-texto: #2d3748;
+    --cor-texto-claro: #4a5568;
+    --cor-fundo: #f7fafc;
+    --cor-branca: #ffffff;
+    --cor-erro: #e53e3e;
+    --cor-sucesso: #38a169;
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-corpo: 'Inter', sans-serif;
+}
+
+/* ============================================
+   RESET E ESTILOS GERAIS
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto);
+    background-color: var(--cor-branca);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-primaria);
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--cor-destaque);
+    margin: 16px auto 0;
+    border-radius: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+section {
+    padding: 50px 24px;
+}
+
+/* ============================================
+   1. HEADER E NAVEGAÇÃO
+   ============================================ */
+header {
+    background-color: var(--cor-branca);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 24px;
+}
+
+.logo {
+    font-family: var(--fonte-titulo);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cor-primaria);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+}
+
+nav ul li a {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--cor-texto-claro);
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cor-destaque);
+    transition: width 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--cor-primaria);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   2. HERO / SEÇÃO DE DESTAQUE
+   ============================================ */
+.hero {
+    background: linear-gradient(135deg, #edf2f7 0%, #e8edf5 100%);
+    padding: 50px 24px 40px;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.hero-ola {
+    font-size: 18px;
+    color: var(--cor-destaque);
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-texto h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: var(--cor-primaria);
+}
+
+.hero-titulo {
+    font-size: 20px;
+    color: var(--cor-secundaria);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.hero-frase {
+    font-size: 16px;
+    color: var(--cor-texto-claro);
+    font-style: italic;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+.hero-botoes {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primario {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-primario:hover {
+    background-color: #0f2542;
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.btn-secundario:hover {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+}
+
+/* Foto de perfil */
+.hero-imagem {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+}
+
+.hero-fundo-decorativo {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background-color: var(--cor-destaque);
+    border-radius: 50%;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.hero-foto-container {
+    position: relative;
+    z-index: 2;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 6px solid var(--cor-branca);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+.hero-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+/* ============================================
+   3. SEÇÃO SOBRE MIM
+   ============================================ */
+.sobre {
+    background-color: var(--cor-branca);
+}
+
+.sobre-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+.sobre-texto p {
+    font-size: 16px;
+    color: var(--cor-texto-claro);
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+.sobre-texto strong {
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+.sobre-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background-color: var(--cor-fundo);
+    padding: 18px 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--cor-destaque);
+}
+
+.info-icone {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.info-card p {
+    font-size: 15px;
+    color: var(--cor-texto);
+    font-weight: 500;
+}
+
+/* ============================================
+   4. FORMAÇÃO ACADÊMICA
+   ============================================ */
+.formacao {
+    background-color: var(--cor-fundo);
+}
+
+.formacao-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.formacao-card {
+    background-color: var(--cor-branca);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--cor-secundaria);
+}
+
+.formacao-card.destaque {
+    border-top-color: var(--cor-destaque);
+}
+
+.formacao-nivel {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+.formacao-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.formacao-instituicao {
+    font-weight: 600;
+    color: var(--cor-secundaria);
+    margin-bottom: 10px;
+}
+
+.formacao-detalhe {
+    font-size: 14px;
+    color: var(--cor-texto-claro);
+    margin-bottom: 4px;
+}
+
+.formacao-coeficiente {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--cor-destaque);
+    font-size: 15px;
+}
+
+/* ============================================
+   5. CURSOS EM ANDAMENTO
+   ============================================ */
+.cursos {
+    background-color: var(--cor-branca);
+}
+
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.curso-card {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--cor-fundo);
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.curso-card:hover {
+    transform: translateY(-6px);
+}
+
+.curso-icone {
+    font-size: 44px;
+    margin-bottom: 14px;
+}
+
+.curso-card h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.curso-card p {
+    font-size: 14px;
+    color: var(--cor-texto-claro);
+}
+
+/* ============================================
+   6. CERTIFICAÇÕES
+   ============================================ */
+.certificacoes {
+    background-color: var(--cor-fundo);
+}
+
+.certificacoes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.cert-card {
+    text-align: center;
+    padding: 24px 16px;
+    background-color: var(--cor-branca);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+}
+
+.cert-icone {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.cert-card h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-family: var(--fonte-corpo);
+}
+
+.cert-card p {
+    font-size: 13px;
+    color: var(--cor-destaque);
+    font-weight: 600;
+}
+
+/* ============================================
+   7. HABILIDADES TÉCNICAS
+   ============================================ */
+.habilidades {
+    background-color: var(--cor-branca);
+}
+
+.habilidades-subtitulo {
+    text-align: center;
+    color: var(--cor-texto-claro);
+    margin-bottom: 40px;
+}
+
+.habilidades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.habilidade-card {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--cor-fundo);
+    border-radius: 12px;
+    transition: transform 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.habilidade-card:hover {
+    transform: translateY(-6px);
+    border-bottom-color: var(--cor-destaque);
+}
+
+.habilidade-icone {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.habilidade-card h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.habilidade-card p {
+    font-size: 14px;
+    color: var(--cor-texto-claro);
+}
+
+/* ============================================
+   8. IDIOMAS
+   ============================================ */
+.idiomas {
+    background-color: var(--cor-fundo);
+}
+
+.idiomas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 500px;
+    margin: 40px auto 0;
+}
+
+.idioma-card {
+    text-align: center;
+    padding: 24px;
+    background-color: var(--cor-branca);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.idioma-bandeira {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.idioma-card h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.idioma-card p {
+    font-size: 14px;
+    color: var(--cor-destaque);
+    font-weight: 600;
+}
+
+/* ============================================
+   9. PROJETOS
+   ============================================ */
+.projetos {
+    background-color: var(--cor-branca);
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.projeto-card {
+    background-color: var(--cor-fundo);
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform 0.3s;
+}
+
+.projeto-card:hover {
+    transform: translateY(-6px);
+}
+
+.projeto-icone {
+    font-size: 44px;
+    margin-bottom: 14px;
+}
+
+.projeto-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.projeto-card p {
+    font-size: 14px;
+    color: var(--cor-texto-claro);
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.projeto-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.projeto-tags span {
+    background-color: var(--cor-branca);
+    color: var(--cor-primaria);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.btn-projeto {
+    display: inline-block;
+    color: var(--cor-secundaria);
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.btn-projeto:hover {
+    color: var(--cor-primaria);
+}
+
+/* ============================================
+   10. ASPIRAÇÕES
+   ============================================ */
+.aspiracao {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, #0f2542 100%);
+    color: var(--cor-branca);
+}
+
+.aspiracao h2 {
+    color: var(--cor-branca);
+}
+
+.aspiracao h2::after {
+    background-color: var(--cor-destaque);
+}
+
+.aspiracao-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.aspiracao-card {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.aspiracao-icone {
+    font-size: 44px;
+    margin-bottom: 14px;
+    display: block;
+}
+
+.aspiracao-card h3 {
+    color: var(--cor-branca);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.aspiracao-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+}
+
+/* ============================================
+   11. CONTATO
+   ============================================ */
+.contato {
+    background-color: var(--cor-fundo);
+}
+
+.contato-subtitulo {
+    text-align: center;
+    color: var(--cor-texto-claro);
+    margin-bottom: 40px;
+}
+
+.contato-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.contato-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contato-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.contato-icone {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.contato-item p {
+    font-size: 15px;
+    color: var(--cor-texto);
+}
+
+.contato-item a {
+    color: var(--cor-secundaria);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.contato-item a:hover {
+    color: var(--cor-primaria);
+}
+
+/* Formulário */
+.contato-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.campo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.campo-form label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--cor-texto);
+}
+
+.campo-form input,
+.campo-form select,
+.campo-form textarea {
+    padding: 12px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: var(--fonte-corpo);
+    font-size: 14px;
+    transition: border-color 0.3s;
+    background-color: var(--cor-branca);
+}
+
+.campo-form input:focus,
+.campo-form select:focus,
+.campo-form textarea:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+.campo-form input.erro,
+.campo-form select.erro,
+.campo-form textarea.erro {
+    border-color: var(--cor-erro);
+}
+
+.mensagem-erro {
+    color: var(--cor-erro);
+    font-size: 12px;
+    min-height: 16px;
+}
+
+.btn-enviar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    margin-top: 8px;
+}
+
+.btn-enviar:hover {
+    background-color: #0f2542;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   12. FOOTER
+   ============================================ */
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    text-align: center;
+    padding: 32px 24px;
+}
+
+footer p {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+footer p:last-child {
+    opacity: 0.7;
+    font-size: 13px;
+}
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-imagem {
+        order: -1;
+        min-height: 250px;
+    }
+
+    .hero-fundo-decorativo {
+        width: 260px;
+        height: 260px;
+    }
+
+    .hero-foto-container {
+        width: 240px;
+        height: 240px;
+    }
+
+    .hero-texto h1 {
+        font-size: 40px;
+    }
+
+    .hero-botoes {
+        justify-content: center;
+    }
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formacao-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cursos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .certificacoes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .habilidades-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .aspiracao-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 40px auto 0;
+    }
+
+    .contato-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .hero {
+        padding: 40px 20px 30px;
+    }
+
+    .hero-texto h1 {
+        font-size: 32px;
+    }
+
+    .hero-titulo {
+        font-size: 16px;
+    }
+
+    .hero-frase {
+        font-size: 14px;
+    }
+
+    .hero-fundo-decorativo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hero-foto-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .cursos-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+        margin: 40px auto 0;
+    }
+
+    .certificacoes-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .habilidades-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .idiomas-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .btn-primario,
+    .btn-secundario {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    .hero-texto h1 {
+        font-size: 28px;
+    }
+
+    .certificacoes-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 40px auto 0;
+    }
+
+    .idiomas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 40px 16px;
+    }
+}
