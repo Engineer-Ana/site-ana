@@ -570,8 +570,7 @@ nav ul li a:hover::after {
 
 .dashboard-container {
     width: 100%;
-    max-width: 1300px;
-    margin: 2rem auto 3rem;
+    margin: 2rem 0 3rem;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -579,11 +578,9 @@ nav ul li a:hover::after {
 .dashboard-container iframe {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    height: auto;
+    height: 700px;
     border: 0;
 }
-
 
 .projeto-card {
     background-color: var(--cor-fundo);
