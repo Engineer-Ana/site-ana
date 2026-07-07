@@ -578,7 +578,7 @@ nav ul li a:hover::after {
 .dashboard-container iframe {
     display: block;
     width: 100%;
-    height: 400px;
+    height: 300px;
     border: 0;
 }
 
